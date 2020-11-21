@@ -88,8 +88,8 @@ module HangmanGame =
     let hiddenAnswer correctLetters (answer:string) =
         for answerLetter in answer.ToCharArray() do
             if List.contains answerLetter correctLetters
-            then printfn " %c" answerLetter
-            else printfn " _"
+            then printf " %c" answerLetter
+            else printf " _"
 
     // Ask player whether he/she wants to play again
     let rec askForAgain () =
