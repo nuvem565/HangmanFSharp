@@ -84,3 +84,10 @@ module HangmanGame =
         let rand = Random().Next(europeans.Length)
         europeans.[rand]
 
+    // Ask player whether he/she wants to play again
+    let rec askForAgain () =
+        printfn "Do you want to play again? [Y/N]"
+        match Console.ReadKey(true).KeyChar with
+        | 'y' | 'Y' -> true 
+        | 'n' | 'N' -> false
+        | _ -> askForAgain ()
