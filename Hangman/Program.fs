@@ -4,6 +4,7 @@
 open System
 open System.IO
 open System.Diagnostics
+open longVars
 
 module HangmanGame =
 
