@@ -76,3 +76,11 @@ module HangmanGame =
                 )
 
     printf "%A" europeans
+
+    // VARIABLES, METHODS, FLAGS
+
+    // Choose random country with capital city in tuple
+    let randomCapital countries = 
+        let rand = Random().Next(europeans.Length)
+        europeans.[rand]
+
