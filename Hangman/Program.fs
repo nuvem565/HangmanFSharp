@@ -84,6 +84,13 @@ module HangmanGame =
         let rand = Random().Next(europeans.Length)
         europeans.[rand]
 
+    // printer for displaying the hidden answer with showed correctly guessed letters
+    let hiddenAnswer correctLetters (answer:string) =
+        for answerLetter in answer.ToCharArray() do
+            if List.contains answerLetter correctLetters
+            then printfn " %c" answerLetter
+            else printfn " _"
+
     // Ask player whether he/she wants to play again
     let rec askForAgain () =
         printfn "Do you want to play again? [Y/N]"
@@ -91,3 +98,4 @@ module HangmanGame =
         | 'y' | 'Y' -> true 
         | 'n' | 'N' -> false
         | _ -> askForAgain ()
+
