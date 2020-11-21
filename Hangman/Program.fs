@@ -51,3 +51,11 @@ module HangmanGame =
         | 'y' | 'Y' -> true 
         | 'n' | 'N' -> false
         | _ -> askForAgain ()
+
+    let rec letterOrWhole () = 
+        printfn "You want to guess the letter or the whole capital name? Type l or w:"
+        match Console.ReadKey(true).KeyChar with
+        | 'l' | 'L' -> true
+        | 'w' | 'W' -> false
+        | _ -> letterOrWhole () 
+
