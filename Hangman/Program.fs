@@ -3,6 +3,7 @@
 
 open System
 open System.IO
+open System.Diagnostics
 
 module HangmanGame =
 
