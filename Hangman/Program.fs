@@ -80,9 +80,9 @@ module HangmanGame =
     // VARIABLES, METHODS, FLAGS
 
     // Choose random country with capital city in tuple
-    let randomCapital countries = 
-        let rand = Random().Next(europeans.Length)
-        europeans.[rand]
+    let randomCapital (countries:(string * string) list) = 
+        let rand = Random().Next(countries.Length)
+        countries.[rand]
 
     // printer for displaying the hidden answer with showed correctly guessed letters
     let hiddenAnswer correctLetters (answer:string) =
@@ -98,4 +98,3 @@ module HangmanGame =
         | 'y' | 'Y' -> true 
         | 'n' | 'N' -> false
         | _ -> askForAgain ()
-
