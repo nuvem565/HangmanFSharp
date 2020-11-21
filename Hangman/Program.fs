@@ -12,56 +12,7 @@ module HangmanGame =
     let sourceDirectory = __SOURCE_DIRECTORY__
     let countriesWithCapital = File.ReadAllLines(sourceDirectory + "\\" + countriesFileName)
 
-    // list of european countries as in the C# version
-    let europeanCountries = [ 
-        "Albania";
-        "Andorra";
-        "Armenia";
-        "Austria";
-        "Belarus";
-        "Belgium";
-        "Bosnia and Herzegovina";
-        "Bulgaria";
-        "Croatia";
-        "Cyprus";
-        "Czech Republic";
-        "Denmark";
-        "Estonia";
-        "Finland";
-        "France";
-        "Germany";
-        "Greece";
-        "Hungary";
-        "Iceland";
-        "Ireland";
-        "Italy";
-        "Kosovo";
-        "Latvia";
-        "Liechtenstein";
-        "Lithuania";
-        "Luxembourg";
-        "Macedonia";
-        "Malta";
-        "Moldova";
-        "Monaco";
-        "Montenegro";
-        "The Netherlands";
-        "Norway";
-        "Poland";
-        "Portugal";
-        "Romania";
-        "Russia";
-        "San Marino";
-        "Serbia";
-        "Slovakia";
-        "Slovenia";
-        "Spain";
-        "Sweden";
-        "Switzerland";
-        "Ukraine";
-        "United Kingdom";
-        "Vatican City"]
-
+    // filters the
     let europeans = 
         Array.toList countriesWithCapital
         // filter for only european countries with respect to "europeanCountries" list
