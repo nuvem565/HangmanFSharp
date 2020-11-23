@@ -109,3 +109,19 @@ module HangmanGame =
         let country, capital = randomCapital (europeans)
         let hasWon = hangman (capital.ToUpper().ToCharArray()) 5 1 [] []
 
+        // Has player won or lost
+        if hasWon then 
+            printfn ""
+            printfn "Congratulations! You guessed the correct answer."
+            printfn ""
+            printfn "   %s, the capital city of %s" (capital.ToUpper()) (country.ToUpper())
+            printfn ""
+            stoper.Stop()
+            let elapsedTime = stoper.Elapsed
+            let formattedTime = sprintf "%02i:%02i:%02i.%03i" elapsedTime.Hours elapsedTime.Minutes elapsedTime.Seconds elapsedTime.Milliseconds
+            printfn "You have completed the game in %f seconds" (elapsedTime.TotalSeconds)
+            printfn "Please, enter your name:"
+            let playerName = Console.ReadLine()
+            printfn ""
+            printfn ""
+
