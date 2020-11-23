@@ -129,3 +129,14 @@ module HangmanGame =
             let newRecord = playerName + " | " + DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + capital
             File.AppendAllLines(sourceDirectory + "\\score.txt", [newRecord])
 
+            // Write the record to the 10 highest scores file
+            let highScoreDir = sourceDirectory + "\\highScore.txt"
+            if File.Exists(highScoreDir) then
+                let highScore = File.ReadAllLines(highScoreDir) 
+                let newHighScore = 
+                    Array.append highScore [|newRecord|]
+                    |> Array.sortBy (fun record -> 
+                        let trimmedRecords = 
+                            record.Split([|'|'|]) 
+                            |> Array.map(fun str -> str.Trim())
+                        trimmedRecords.[3], trimmedRecords.[2]) 
