@@ -151,3 +151,12 @@ module HangmanGame =
             else
                 File.WriteAllLines(highScoreDir, [|newRecord|])
         
+            // prints the Sans picture, ask the player for play again
+            printfn ""
+            sans()
+            printfn ""
+            printfn ""
+            if askForAgain() then 
+                play(1)
+            else 
+                ()
