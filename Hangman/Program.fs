@@ -160,3 +160,16 @@ module HangmanGame =
                 play(1)
             else 
                 ()
+        else
+            // The game is lost
+            printfn ""
+            printfn "You lose! The correct answer is:"
+            printfn ""
+            printfn "   %s, the capital city of %s" (capital.ToUpper()) (country.ToUpper())
+            printfn ""
+
+            if askForAgain() then
+                play(guessingTries + 1)
+            else 
+                ()
+
