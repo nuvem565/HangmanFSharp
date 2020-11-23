@@ -96,3 +96,16 @@ module HangmanGame =
             | _ -> 
                 hangman answer (actualLives - 2) (round + 1) correctLetters wrongLetters
 
+    // START OF THE GAME - all tries loop
+    let rec play (guessingTries:int) =
+        printfn "Welcome in The Hangman Game!"
+        printfn "Try to guess the european country capital city we have in mind. "
+        printfn "You have 5 lives. First, you decide whether you want to guess a single letter or the whole answer typing l or w accordingly."
+        printfn "If you mistake guessing the letter, you lose one life. If you guessing the whole capital, you lose two lives."
+        // Start to measure the elapsed time
+        let stoper = Stopwatch.StartNew()
+
+        // remember to make all letters in the answer uppercase in hangman function call
+        let country, capital = randomCapital (europeans)
+        let hasWon = hangman (capital.ToUpper().ToCharArray()) 5 1 [] []
+
