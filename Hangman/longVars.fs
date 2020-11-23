@@ -51,11 +51,16 @@
         "Vatican City"]
 
     let printLives (hearts:int) =
-        for i = 1 to hearts do printfn " _  _ "
-        for i = 1 to hearts do printfn "/ \\/ \\"
-        for i = 1 to hearts do printfn "\\    /"
-        for i = 1 to hearts do printfn " \\  / "
-        for i = 1 to hearts do printfn "  \\/  "
+        for i = 1 to hearts do printf " _  _ "
+        printfn ""
+        for i = 1 to hearts do printf "/ \\/ \\"
+        printfn ""
+        for i = 1 to hearts do printf "\\    /"
+        printfn ""
+        for i = 1 to hearts do printf " \\  / "
+        printfn ""
+        for i = 1 to hearts do printf "  \\/  "
+        printfn ""
 
     let comicSans =
         [       "When does a skeleton laugh? \r\n - When someone tickles his funny bone!";
