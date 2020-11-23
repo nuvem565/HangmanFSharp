@@ -15,22 +15,15 @@ module HangmanGame =
 
     // filters the
     let europeans = 
-        Array.toList countriesWithCapital
-        // filter for only european countries with respect to "europeanCountries" list
-        |> List.filter (
-            fun line -> 
-                let country = line.Substring(0, line.IndexOf('|')).Trim()
-                List.contains country europeanCountries) 
-        // Divide all string lines into a tuple
-        |> List.map (
-            fun pair ->
-                let arrOfTwo = pair.Split([|'|'|], 2)
-                arrOfTwo.[0].Trim() , arrOfTwo.[1].Trim()
-                )
-
-    printf "%A" europeans
-
-    // VARIABLES, METHODS, FLAGS
+        [
+            for line in countriesWithCapital do
+            // choose country part
+            let country = line.Substring(0, line.IndexOf('|')).Trim()
+            // if it's european country, add it to the list of (country * capital) tuples
+            if List.contains country europeanCountries then 
+                let arrOfTwo = line.Split([|'|'|], 2)
+                yield arrOfTwo.[0].Trim() , arrOfTwo.[1].Trim()
+        ]
 
     // Choose random country with capital city in tuple
     let randomCapital (countries:(string * string) list) = 
