@@ -25,6 +25,8 @@ module HangmanGame =
                 yield arrOfTwo.[0].Trim() , arrOfTwo.[1].Trim()
         ]
 
+
+    // Prepares auxiliary functions
     // Choose random country with capital city in tuple
     let randomCapital (countries:(string * string) list) = 
         let rand = Random().Next(countries.Length)
