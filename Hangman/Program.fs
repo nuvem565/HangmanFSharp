@@ -57,3 +57,17 @@ module HangmanGame =
         member this.ToUpper() = this.ToString().ToUpper().[0]
 
 
+    // THE RUNTIME OF THE GAME - loop of the rounds
+    let rec hangman answer actualLives round correctLetters wrongLetters = 
+        printfn ""
+        printfn "---------- ROUND %i ----------" round
+        printfn ""
+        printLives(actualLives)
+        printfn ""
+        printfn "Used letters: %A" wrongLetters
+        printfn ""
+        printf "Secret word: " 
+        hiddenAnswer correctLetters answer
+        printfn ""
+        printfn ""
+        printfn "You want to guess the letter or the whole capital name? Type l or w:"
