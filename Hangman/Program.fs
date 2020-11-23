@@ -45,12 +45,13 @@ module HangmanGame =
         | 'n' | 'N' -> false
         | _ -> askForAgain ()
 
-    let rec letterOrWhole () = 
-        printfn "You want to guess the letter or the whole capital name? Type l or w:"
+    // Check whether player wants to input - letter of whole word in the loop
+    let rec isGuessingTheLetter () = 
         match Console.ReadKey(true).KeyChar with
         | 'l' | 'L' -> true
         | 'w' | 'W' -> false
-        | _ -> letterOrWhole () 
+        | _ -> isGuessingTheLetter () 
+
     // Adds method for making the char uppercase
     type Char with
         member this.ToUpper() = this.ToString().ToUpper().[0]
