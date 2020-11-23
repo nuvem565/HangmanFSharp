@@ -148,3 +148,6 @@ module HangmanGame =
                 if newHighScore.Length >= 10
                 then File.WriteAllLines(highScoreDir, (Array.take 10 newHighScore) )
                 else File.WriteAllLines(highScoreDir, Array.take (newHighScore.Length) newHighScore)
+            else
+                File.WriteAllLines(highScoreDir, [|newRecord|])
+        
