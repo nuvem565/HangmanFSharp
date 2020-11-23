@@ -31,8 +31,8 @@ module HangmanGame =
         countries.[rand]
 
     // printer for displaying the hidden answer with showed correctly guessed letters
-    let hiddenAnswer correctLetters (answer:string) =
-        for answerLetter in answer.ToCharArray() do
+    let hiddenAnswer correctLetters (answer: char[]) =
+        for answerLetter in answer do
             if List.contains answerLetter correctLetters
             then printf " %c" answerLetter
             else printf " _"
