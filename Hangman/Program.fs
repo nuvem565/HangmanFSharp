@@ -140,3 +140,11 @@ module HangmanGame =
                             record.Split([|'|'|]) 
                             |> Array.map(fun str -> str.Trim())
                         trimmedRecords.[3], trimmedRecords.[2]) 
+                // Prints 10 best records and writes them into the file
+                printfn ""
+                printf "Player name | Date | Guessing time (hh:mm:ss) | Number of tries | Correct answer"
+                for record in newHighScore do
+                    printfn "%A" record
+                if newHighScore.Length >= 10
+                then File.WriteAllLines(highScoreDir, (Array.take 10 newHighScore) )
+                else File.WriteAllLines(highScoreDir, Array.take (newHighScore.Length) newHighScore)
