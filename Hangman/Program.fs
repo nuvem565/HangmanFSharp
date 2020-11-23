@@ -125,3 +125,7 @@ module HangmanGame =
             printfn ""
             printfn ""
 
+            // Write the name, date, elapsed time, tries and the answered capital to the file
+            let newRecord = playerName + " | " + DateTime.Today.ToShortDateString() + " | " + formattedTime + " | " + guessingTries.ToString() + " | " + capital
+            File.AppendAllLines(sourceDirectory + "\\score.txt", [newRecord])
+
