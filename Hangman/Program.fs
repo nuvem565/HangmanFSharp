@@ -51,4 +51,8 @@ module HangmanGame =
         | 'l' | 'L' -> true
         | 'w' | 'W' -> false
         | _ -> letterOrWhole () 
+    // Adds method for making the char uppercase
+    type Char with
+        member this.ToUpper() = this.ToString().ToUpper().[0]
+
 
