@@ -173,3 +173,5 @@ module HangmanGame =
             else 
                 ()
 
+    // Starts the game
+    play(1)
