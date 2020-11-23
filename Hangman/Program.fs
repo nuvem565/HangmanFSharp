@@ -71,3 +71,28 @@ module HangmanGame =
         printfn ""
         printfn ""
         printfn "You want to guess the letter or the whole capital name? Type l or w:"
+        match isGuessingTheLetter () with
+        | true ->
+            printfn "Now, guess the letter: "
+            match Console.ReadKey().KeyChar.ToUpper() with
+            | guessedLetter when Array.contains (guessedLetter) (answer) ->
+                if Array.forall ( fun char -> List.contains char (guessedLetter :: correctLetters) ) (answer) 
+                // all letters are correctly guessed
+                then true
+                // correct guess, the game continues
+                else hangman answer (actualLives) (round + 1) (guessedLetter :: correctLetters) wrongLetters
+            | _ when actualLives = 1 ->
+                // wrong guess, the game is lost
+                false
+            | guessedLetter -> 
+                hangman answer (actualLives - 1) (round + 1) correctLetters (guessedLetter :: wrongLetters)
+        | false -> 
+            printfn "So, you know what do I think? Don't push yourself, we'll hang on. "
+            match Console.ReadLine() with
+            | guessedWord when Array.forall ( fun ch -> Array.contains ch (answer) ) (guessedWord.ToUpper().ToCharArray()) ->
+                true
+            | _ when actualLives <= 2 ->
+                    false
+            | _ -> 
+                hangman answer (actualLives - 2) (round + 1) correctLetters wrongLetters
+
