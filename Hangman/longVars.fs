@@ -78,6 +78,7 @@
 
     let dadJokesGenerator () =
         let jokeIndex = System.Random().Next(comicSans.Length)
-        comicSans.[jokeIndex]
+        printfn ""
+        printfn "%s" comicSans.[jokeIndex]
 
     let sans () = printfn "                sssssssssssssssss               \r\n       sssSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSsss\r\n     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS\r\n    SSSSSSS        SSSSSSSSSSSSSSS        SSSSSSS\r\n   SSSSSS           SSSSSSSSSSSSS           SSSSSS\r\n   SSSSS       S    SSSSS   SSSSSS    S       SSSSS\r\n    SSSSSS        SSSSSS     SSSSSSS        SSSSSSS\r\n    SSSSSSSSSSSSSSSSSSS       SSSSSSSSSSSSSSSSSSSS\r\n    SSS SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS SSS\r\n   SSS  S SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS S  SSS\r\n   SSS  SS SS  SSSSSSSSSSSSSSSSSSSSSSSS SS SSS  SSS\r\n   SSSS SS SSS SSSS SSSS SSSS SSSS SSS SSS SSS SSSS\r\n    SSSS S SSS SSSS SSSS SSSS SSSS SSS SSS SS SSSS\r\n      SSSS SSS SSSS SSSS SSSS SSSS SSS SSS  SSSS\r\n         SSSSSSSSSS SSSS SSSS SSSS SSSSSSSSSS\r\n               SSSSSSSSSSSSSSSSSSSSSSSS      "
