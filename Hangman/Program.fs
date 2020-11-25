@@ -93,7 +93,7 @@ module HangmanGame =
         | false -> 
             printfn "So, you know what do I think? Don't push yourself, we'll hang on. "
             match Console.ReadLine() with
-            | guessedWord when Array.forall ( fun ch -> Array.contains ch (answer) ) (guessedWord.ToUpper().ToCharArray()) ->
+            | guessedWord when answer = (guessedWord.ToUpper().ToCharArray()) ->
                 true
             | _ when actualLives <= 2 ->
                 false
