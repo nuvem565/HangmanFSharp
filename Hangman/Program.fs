@@ -87,6 +87,8 @@ module HangmanGame =
                 // wrong guess, the game is lost
                 false
             | guessedLetter -> 
+                printfn ""
+                dadJokesGenerator () |> ignore
                 hangman answer (actualLives - 1) (round + 1) correctLetters (guessedLetter :: wrongLetters)
         | false -> 
             printfn "So, you know what do I think? Don't push yourself, we'll hang on. "
@@ -94,8 +96,9 @@ module HangmanGame =
             | guessedWord when Array.forall ( fun ch -> Array.contains ch (answer) ) (guessedWord.ToUpper().ToCharArray()) ->
                 true
             | _ when actualLives <= 2 ->
-                    false
+                false
             | _ -> 
+                dadJokesGenerator () |> ignore
                 hangman answer (actualLives - 2) (round + 1) correctLetters wrongLetters
 
     // START OF THE GAME - all tries loop
